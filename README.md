@@ -1,44 +1,50 @@
-# BlockTheSpot
-
-## Video, audio & banner adblock/skip for Spotify
-
-**Current Version:** 0.13
-
-**Last updated:** 5th March 2019
-
-**Last tested version:** 1.1.4.197.g92d52c4f
-
-### Important Notice
-
-If you are using Spotify 1.1.5.xxx or newer, please use run the automatic downgrade script [here](https://github.com/master131/BlockTheSpot/raw/master/downgrade.bat) which will downgrade to 1.1.4.197.g92d52c4f and also disable auto-update. Thanks @CHEF-KOCH.
-
-#### How do I re-enable automatic updates?
-
-Run Command Prompt as administrator and enter the following command:
-```
-icacls "%localappdata%\Spotify\Update" /reset /T
-```
+<center>
+  <h1 align="center">BlockTheSpot</h1>
+  <h4 align="center">A multi-purpose adblocker and skip bypass for the <strong>Windows</strong> Spotify Desktop Application.</h4>
+  <h5 align="center">Please support Spotify by purchasing premium</h5>
+  <p align="center">
+    <strong>Current Version:</strong> 0.44 <br>
+    <strong>Last updated:</strong> 1 February 2020<br>
+    <strong>Last tested version:</strong> 1.1.25.559.g85cf5e4c
+  </p>
+  <h4 align="center">Important Notice(s)</h4>
+  <p align="center">
+    This .dll is virus free, false checks may appear. This can be reassured via the source code. <br>
+    "chrome_elf.dll" gets replaced by Spotify Installer each time it updates, make sure to replace it again.
+  </p>
+</center>
 
 ### Features:
-* Windows only
-* Set and forget
 * Blocks all banner/video/audio ads within the app
 * Retains friend, vertical video and radio functionality
 * Unlocks the skip function for any track
+* (Optonal) Built-in AdGuard DNS for ads blocking!
 
-:warning: This mod is for the [**Desktop release**](https://www.spotify.com/download/windows/) of Spotify on Windows and **not the Microsoft Store version**.
+:warning: This mod is for the [**Desktop Application**](https://www.spotify.com/download/windows/) of Spotify on Windows, **not the Microsoft Store version**.
 
-### Install/Uninstall:
-
-#### Easy Installation:
-[Download](https://github.com/master131/BlockTheSpot/raw/master/install.bat) and run install.bat. You don't need to download any other file. 
-
-PS - It's not encrypted at all, it's a batch file with the mod embedded at the end (see the "MZ" header). You can always use the manual installation method.
-
-#### Manual Installation:
-[Download](https://github.com/master131/BlockTheSpot/raw/master/netutils.dll) and drop netutils.dll inside the Spotify installation folder (next to Spotify.exe).
-
-The default Spotify installation location is: %APPDATA%/Spotify (copy and paste into Explorer address bar)
+#### Installation/Update:
+1. Browse to Spotify installation folder `%APPDATA%/Spotify`
+2. Backup existing `chrome_elf.dll` by renaming it (e.g. chrome_elf.bak)
+3. Download [chrome_elf.zip](chrome_elf.zip)
+4. Extract chrome_elf.dll, config.ini from chrome_elf.zip to that folder. 
 
 #### Uninstall:
-To uninstall, simply delete netutils.dll from your Spotify installation (see above for the location).
+1. Browse to Spotify installation folder `%APPDATA%/Spotify` 
+2. Simply delete chrome_elf.dll, config.ini from your Spotify installation
+3. Rename your backup dll to chrome_elf.dll
+
+#### Note:
+* Starting from v0.42, AdGuardDNS look up in config.ini are disable by default.
+* Built-in AdGuard DNS lookup, paranoid people may see additional DNS traffic UDP(53) 
+going out to Adguard DNS Server.
+* if you can't reach AdGuard DNS for some reason, things still working as expected.
+* You can change Ads Check(blocking)DNS via config.ini AdGuardDNS_IP default are '176.103.130.134'
+
+#### Known Issues and Caveats:
+* Ads banner maybe appear if you network use 'Web Proxy Auto-Discovery Protocol'
+https://en.wikipedia.org/wiki/Web_Proxy_Auto-Discovery_Protocol
+set Skip_wpad in config.ini to 1 may help.
+* On windows 7, Ads Blocking may not work
+set WinHttpReadDataFix in config.ini to 1 may help.
+* Built-in AdGuard DNS lookup, maybe cause application slowdown,
+set AdGuardDNS in config.ini to 0 to turn this feature off.
